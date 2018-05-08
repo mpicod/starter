@@ -54,12 +54,25 @@ gulp.task('images', function(){
       .pipe(gulp.dest('dist/images'))
 });
 
+const browsersyncWatchFiles = [
+  './dist/css/*.css',
+  './js/*.js',
+  './**/*.php'
+];
+
+const browsersyncOptions = {
+	server: {baseDir:'dist'},
+	
+  ghostMode: {
+    clicks: true,
+    forms: true,
+    scroll: true
+  }
+};
+
+
 gulp.task('browserSync', function(){
-  browserSync.init({
-    server: {
-      baseDir: 'dist'
-    }
-  })
+  browserSync.init(browsersyncWatchFiles, browsersyncOptions)
 });
 
 gulp.task('watch', ['browserSync', 'css'], function(){

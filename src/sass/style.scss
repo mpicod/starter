@@ -1,0 +1,15 @@
+@import 'typography';
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: red;
+    color: purple;
+    font-size: 20px;
+    div{
+        min-height: 200px;
+    }
+}
